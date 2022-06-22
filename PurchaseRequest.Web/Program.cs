@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using PurchaseRequest.Web.Configurations;
 using PurchaseRequest.Web.Data;
 using AutoMapper;
+using PurchaseRequest.Web.Contracts;
+using PurchaseRequest.Web.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<Employee>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IPurchaseTypeRepository, PurchaseTypeRepository>();
 
 builder.Services.AddAutoMapper(typeof(MapperConfig));
 
