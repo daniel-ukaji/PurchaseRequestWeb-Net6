@@ -19,11 +19,15 @@ namespace PurchaseRequest.Web.Controllers
     {
         private readonly IPurchaseTypeRepository purchaseTypeRepository;
         private readonly IMapper mapper;
+        private readonly ILeaveAllocationRepository leaveAllocationRepository;
 
-        public LeaveTypesController(IPurchaseTypeRepository purchaseTypeRepository, IMapper mapper)
+        public LeaveTypesController(IPurchaseTypeRepository purchaseTypeRepository
+            , IMapper mapper
+            , ILeaveAllocationRepository leaveAllocationRepository)
         {
             this.purchaseTypeRepository = purchaseTypeRepository;
             this.mapper = mapper;
+            this.leaveAllocationRepository = leaveAllocationRepository;
         }
 
         // GET: LeaveTypes
@@ -125,6 +129,15 @@ namespace PurchaseRequest.Web.Controllers
 
 
             await purchaseTypeRepository.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AllocateLeave(int id)
+        {
+            await leaveAllocationRepository.LeaveAllocation(id);
             return RedirectToAction(nameof(Index));
         }
     }

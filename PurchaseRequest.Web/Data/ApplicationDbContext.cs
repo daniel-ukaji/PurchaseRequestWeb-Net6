@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PurchaseRequest.Web.Configurations.Entities;
+using PurchaseRequest.Web.Models;
 
 namespace PurchaseRequest.Web.Data
 {
@@ -21,6 +22,5 @@ namespace PurchaseRequest.Web.Data
 
         public DbSet<LeaveType> LeaveTypes { get; set; }
         public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
-
     }
 }
