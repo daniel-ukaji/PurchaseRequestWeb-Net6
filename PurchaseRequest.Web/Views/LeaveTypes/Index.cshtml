@@ -15,9 +15,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.DefaultDays)
-            </th>
+            </th>*@
             
             <th></th>
         </tr>
@@ -28,9 +28,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.DefaultDays)
-            </td>
+            </td>*@
             
             <td>
                 <button data-id="@item.Id" class="btn btn-primary allocateBtn" type="button"> Allocate Leave </button>
@@ -74,7 +74,7 @@
             $('.allocateBtn').click(function(e) {
                 swal({
                     title: "Are you sure?",
-                    text: "Are you sure you want to allocate this leave to all employees?",
+                    text: "Are you sure you want to allocate this purchase to all employees?",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true

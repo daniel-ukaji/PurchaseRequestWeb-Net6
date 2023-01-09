@@ -1,17 +1,17 @@
 ﻿@model EmployeeLeaveRequestViewVM
 
 @{
-    ViewData["Title"] = "My Leave";
+    ViewData["Title"] = "My Purchase";
 }
 
-<div class="card" >
+@*<div class="card" >
     <div class="card-header">
-        <h2>Leave Allocations</h2>
+        <h2>Purchase Allocations</h2>
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
             <div class="row">
-                <div class="col">Leave Name</div>
+                <div class="col">Purchase Name</div>
                 <div class="col">Original Allocation</div>
                 <div class="col">Current Allocation</div>
             </div>
@@ -31,19 +31,19 @@
             </li>
         }
     </ul>
-</div>
+</div>*@
 
 <hr />
 <h2>Current Requests</h2>
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.LeaveRequests[0].StartDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LeaveRequests[0].EndDate)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.LeaveRequests[0].LeaveType)
             </th>
@@ -60,12 +60,12 @@
     <tbody>
 @foreach (var item in Model.LeaveRequests) {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.LeaveType.Name)
             </td>

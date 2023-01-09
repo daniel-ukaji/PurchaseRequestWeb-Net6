@@ -82,7 +82,7 @@ namespace PurchaseRequest.Web.Repositories
                     EmployeeId = employee.Id,
                     LeaveTypeId = leaveTypeId,
                     Period = period,
-                    NumberOfDays = leaveType.DefaultDays
+                    //NumberOfDays = leaveType.DefaultDays
                 });
             }
 

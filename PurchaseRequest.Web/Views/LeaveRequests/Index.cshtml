@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Admin Leave Requests View</h1>
+<h1>Admin Purchase Requests View</h1>
 
 <div class="row">
       <div class="col-3">
@@ -43,7 +43,7 @@
 
 
 <hr />
-<h1>Leave Request Log</h1>
+<h1>Purchase Request Log</h1>
 <hr />
 
 <table class="table">
@@ -52,12 +52,12 @@
             <th>
                 Employee Name
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => Model.LeaveRequests[0].StartDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => Model.LeaveRequests[0].EndDate)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => Model.LeaveRequests[0].LeaveType)
             </th>
@@ -78,12 +78,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Employee.Firstname) @Html.DisplayFor(modelItem => item.Employee.Lastname)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.LeaveType.Name)
             </td>

@@ -18,7 +18,7 @@ namespace PurchaseRequest.Web.Controllers
         {
             return View();
         }
-        [Authorize]
+        //[Authorize]
         public IActionResult Privacy()
         {
             return View();

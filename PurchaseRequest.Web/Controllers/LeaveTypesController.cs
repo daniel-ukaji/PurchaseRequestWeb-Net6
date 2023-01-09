@@ -14,7 +14,7 @@ using PurchaseRequest.Web.Models;
 
 namespace PurchaseRequest.Web.Controllers
 {
-    [Authorize(Roles = Roles.Administrator)]
+    //[Authorize(Roles = Roles.Administrator)]
     public class LeaveTypesController : Controller
     {
         private readonly IPurchaseTypeRepository purchaseTypeRepository;

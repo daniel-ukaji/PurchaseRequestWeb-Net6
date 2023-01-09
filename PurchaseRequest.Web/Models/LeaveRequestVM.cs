@@ -11,7 +11,7 @@ namespace PurchaseRequest.Web.Models
         [Display(Name = "Date Requested")]
         public DateTime DateRequested { get; set; }
 
-        [Display(Name = "Leave Type")]
+        [Display(Name = "Purchase Type")]
         public LeaveTypeVM LeaveType { get; set; }
 
         public bool? Approved { get; set; }

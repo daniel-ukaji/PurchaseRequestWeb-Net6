@@ -40,14 +40,14 @@ namespace PurchaseRequest.Web.Repositories
             var leaveRequest = await GetAsync(leaveRequestId);
             leaveRequest.Approved = approved;
 
-            if (approved)
-            {
-                var allocation = await leaveAllocationRepository.GetEmployeeAllocation(leaveRequest.RequestingEmployeeId ,leaveRequest.LeaveTypeId);
-                int daysRequested = (int)(leaveRequest.EndDate - leaveRequest.StartDate).TotalDays;
-                allocation.NumberOfDays -= daysRequested;
+            //if (approved)
+            //{
+               // var allocation = await leaveAllocationRepository.GetEmployeeAllocation(leaveRequest.RequestingEmployeeId ,leaveRequest.LeaveTypeId);
+               // int daysRequested = (int)(leaveRequest.EndDate - leaveRequest.StartDate).TotalDays;
+               // allocation.NumberOfDays -= daysRequested;
 
-                await leaveAllocationRepository.UpdateAsync(allocation);
-            }
+               // await leaveAllocationRepository.UpdateAsync(allocation);
+           // }
 
             await UpdateAsync(leaveRequest);
         }
@@ -56,19 +56,19 @@ namespace PurchaseRequest.Web.Repositories
         {
             var user = await userManager.GetUserAsync(httpContextAccessor?.HttpContext.User);
 
-            var leaveAllocation = await leaveAllocationRepository.GetEmployeeAllocation(user.Id, model.LeaveTypeId);
+            //var leaveAllocation = await leaveAllocationRepository.GetEmployeeAllocation(user.Id, model.LeaveTypeId);
 
-            if(leaveAllocation == null)
-            {
-                return false;
-            }
+            //if(leaveAllocation == null)
+            //{
+            //    return false;
+            //}
 
-            int daysRequested = (int)(model.EndDate.Value - model.StartDate.Value).TotalDays;
+            //int daysRequested = (int)(model.EndDate.Value - model.StartDate.Value).TotalDays;
 
-            if(daysRequested > leaveAllocation.NumberOfDays)
-            {
-                return false;
-            }
+            //if(daysRequested > leaveAllocation.NumberOfDays)
+            //{
+            //    return false;
+            //}
 
             var leaveRequest = mapper.Map<LeaveRequest>(model);
             leaveRequest.DateRequested = DateTime.Now;

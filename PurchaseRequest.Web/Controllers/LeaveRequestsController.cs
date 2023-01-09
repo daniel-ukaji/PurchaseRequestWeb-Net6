@@ -14,7 +14,7 @@ using PurchaseRequest.Web.Models;
 
 namespace PurchaseRequest.Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class LeaveRequestsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,7 +26,7 @@ namespace PurchaseRequest.Web.Controllers
             this.leaveRequestRepository = leaveRequestRepository;
         }
 
-        [Authorize(Roles = Roles.Administrator)]
+        //[Authorize(Roles = Roles.Administrator)]
         // GET: LeaveRequests
         public async Task<IActionResult> Index()
         {

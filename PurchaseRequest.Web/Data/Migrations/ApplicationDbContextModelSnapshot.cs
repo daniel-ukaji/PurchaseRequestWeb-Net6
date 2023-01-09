@@ -52,14 +52,14 @@ namespace PurchaseRequest.Web.Data.Migrations
                         new
                         {
                             Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
-                            ConcurrencyStamp = "b2bf57b5-8dcd-42f6-adf5-5db347cdd899",
+                            ConcurrencyStamp = "fe0e9e45-a57a-45e3-825d-1ba18c87c998",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "cac43a7e-f7cb-4148-baaf-1acb431eabbf",
-                            ConcurrencyStamp = "3b6eed95-52f2-4bd6-940f-6cf51633d839",
+                            ConcurrencyStamp = "c5462c94-14bb-4d6d-8141-ad82fb4f4b8b",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -271,7 +271,7 @@ namespace PurchaseRequest.Web.Data.Migrations
                         {
                             Id = "d0eab64d-0036-4a8c-8faf-dd9c3951abc8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e856c48d-d8da-403b-9a17-820e043aae1c",
+                            ConcurrencyStamp = "4f9d0751-a89a-4953-ad60-d6b3a022ca50",
                             DateJoined = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin1@test.com",
@@ -281,9 +281,9 @@ namespace PurchaseRequest.Web.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN1@TEST.COM",
                             NormalizedUserName = "ADMIN1@TEST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAojoZYjMavjazQizcGFx+03jRSqNglJPPYlO+zrCGcj7CrjP1HJhgAKO2t87spo1Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJj+4gFkdR5PE3mxIrLXJZo/7vFtcA5VSz8J23GhgkxfVIaHf14Ci3x44EYAIShZdA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "49eb2bd8-e5a3-448a-9ec0-505eab0110f8",
+                            SecurityStamp = "86c66215-9af2-462d-8921-8d565ae2ed05",
                             TwoFactorEnabled = false,
                             UserName = "admin1@test.com"
                         },
@@ -291,7 +291,7 @@ namespace PurchaseRequest.Web.Data.Migrations
                         {
                             Id = "7335585a-1cea-4e49-a326-e626848b6afd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b4e40f14-0dee-477a-bd83-a4fea064879a",
+                            ConcurrencyStamp = "3b260182-1caf-402c-b479-e46a1b2b6231",
                             DateJoined = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@localhost.com",
@@ -301,9 +301,9 @@ namespace PurchaseRequest.Web.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@LOCALHOST.COM",
                             NormalizedUserName = "USER@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEA5u99YuZF1WHwjqBgckx92pFgwWA7OYsRjcWnCOXtFbvM6OrivRx6VSKSkCD/ZIBA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFRc2qKVYlT/j/B3FrTJ43cf3idwLjkQL5l4O/0YgjyHqqitVN4RX4OWCT17rQodDw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1a26384d-b027-4994-8d70-55e80ee335bb",
+                            SecurityStamp = "d0eb5ddd-9d20-43ca-889a-efa133cef99d",
                             TwoFactorEnabled = false,
                             UserName = "user@localhost.com"
                         });
@@ -351,8 +351,14 @@ namespace PurchaseRequest.Web.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("AmountProduction")
+                        .HasColumnType("int");
+
                     b.Property<bool?>("Approved")
                         .HasColumnType("bit");
+
+                    b.Property<int?>("BalancePayment")
+                        .HasColumnType("int");
 
                     b.Property<bool>("Cancelled")
                         .HasColumnType("bit");
@@ -366,11 +372,38 @@ namespace PurchaseRequest.Web.Data.Migrations
                     b.Property<DateTime>("DateRequested")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DeliveryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("LeaveTypeId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Manufacturer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModelPurchase")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Power")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Prepayment")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PurchaseItems")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Rating")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RequestComments")
                         .HasColumnType("nvarchar(max)");
@@ -381,6 +414,15 @@ namespace PurchaseRequest.Web.Data.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Unit")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VendorAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VendorName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -403,7 +445,7 @@ namespace PurchaseRequest.Web.Data.Migrations
                     b.Property<DateTime>("DateModified")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DefaultDays")
+                    b.Property<int?>("DefaultDays")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
